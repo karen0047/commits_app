@@ -1,0 +1,10 @@
+
+<table>
+  <% @commits.each do |commit| %>
+    <tr>
+      <td><%= commit.api_data %></td>
+      <td><%= link_to 'Новый', new_commit_path(commit) %></td>
+      <td><%= link_to 'Удалить', commit_path(commit), method: :delete, data: { confirm: '' } %></td>
+    </tr>
+  <% end %>
+</table>
