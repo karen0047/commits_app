@@ -10,6 +10,7 @@ class CommitsController < ApplicationController
 
   def new
     @commit = Commit.new
+
   end
 
   def edit
@@ -18,11 +19,8 @@ class CommitsController < ApplicationController
 
   def create
     @commit = Commit.new
-    if @commit.save
-      @commit.api_data
-      redirect_to root_path 
-    else
-      render 'new'
+    if @commit.api
+      redirect_to @commit
     end
   end
 
@@ -34,6 +32,6 @@ class CommitsController < ApplicationController
   end
   private
   def commit_params
-    require(:commits).permit(:name, :email, :date, :sha)
+    require(:commits).permit(:name, :email, :date, :sha, :author, :repo)
   end
 end

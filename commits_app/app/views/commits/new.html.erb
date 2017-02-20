@@ -1,5 +1,5 @@
-<%= form_for @commit, method: "post" do |f|%>
-  <%= f.text_field :author %>
-  <%= f.text_field :repo %>
+<%= form_for @commit, method: "post" do %>
+  <%= text_field(:api, :author) %>
+  <%= text_field(:api, :repo) %>
   <%= submit_tag("Good") %>
 <% end %>

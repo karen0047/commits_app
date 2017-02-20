@@ -1,9 +1,12 @@
-
+<h1>Results</h1>
+<td><%= link_to 'Новый', new_commit_path %></td>
 <table>
   <% @commits.each do |commit| %>
     <tr>
-      <td><%= commit.api_data %></td>
-      <td><%= link_to 'Новый', new_commit_path(commit) %></td>
+      <td><%= commit.name %></td>
+      <td><%= commit.email %></td>
+      <td><%= commit.date.try(:strftime, '%B %e, %Y') %></td>
+      <td><%= commit.sha %></td>
       <td><%= link_to 'Удалить', commit_path(commit), method: :delete, data: { confirm: '' } %></td>
     </tr>
   <% end %>

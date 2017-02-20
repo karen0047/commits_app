@@ -1,14 +1,12 @@
 class Commit < ApplicationRecord
-  def author
-   puts "#{"otocat"}"
+  attr_accessor :author, :repo
+  def initialise(author,repo)
+    @author = author
+    @repo = repo
   end
-  
-  def repo
-  puts  "#{"Hello-World"}"
-  end
+  def api(author,repo)
 
-  def api_data
-    response = HTTParty.get('https://api.github.com/repos/:author/:repo/commits')
+    response = HTTParty.get('https://api.github.com/repos/octocat/Hello-World/commits')
     commits_data = JSON.parse(response.body)
     commits_data.each do |element|
       name = element["commit"]["author"]["name"]
