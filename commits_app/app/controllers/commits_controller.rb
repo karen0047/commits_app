@@ -29,6 +29,6 @@ class CommitsController < ApplicationController
   end
   private
   def commit_params
-    params.permit(:name, :email, :date, :sha, :author, :repo)
+    params.permit(:author, :repo)
   end
 end
