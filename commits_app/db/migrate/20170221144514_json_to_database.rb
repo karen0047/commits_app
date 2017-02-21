@@ -5,6 +5,8 @@ class JsonToDatabase < ActiveRecord::Migration[5.0]
       t.string :email
       t.datetime :date
       t.string :sha
+      t.string :author
+      t.string :repo
     end
   end
 end
