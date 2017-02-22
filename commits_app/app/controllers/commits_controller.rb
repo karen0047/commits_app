@@ -1,5 +1,5 @@
 class CommitsController < ApplicationController
-  require 'json'
+
   def index
     @commits = Commit.all
   end
@@ -18,7 +18,8 @@ class CommitsController < ApplicationController
 
   def create
     @commit = Commit.new(commit_params)
-    @commit.get_from_api(:author, :repo)
+    @commit.get_from_api
+    redirect_to @commit
   end
 
   def destroy
