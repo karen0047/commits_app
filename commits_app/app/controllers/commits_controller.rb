@@ -4,16 +4,8 @@ class CommitsController < ApplicationController
     @commits = Commit.all
   end
 
-  def show
-    @commit = Commit.find(params[:id])
-  end
-
   def new
     @commit = Commit.new
-  end
-
-  def edit
-    @commit = Commit.find(params[:id])
   end
 
   def create
@@ -28,6 +20,7 @@ class CommitsController < ApplicationController
       redirect_to root_path
     end
   end
+  
   private
   def commit_params
     params.require(:commit).permit(:name, :email, :date, :sha, :author, :repo)
